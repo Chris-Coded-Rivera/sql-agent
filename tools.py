@@ -13,9 +13,7 @@ class RuntimeContext:
 def execute_sql(query: str) -> str:
     """Execute SQLite command and return results."""
     runtime = get_runtime(RuntimeContext)
-    # db = runtime.context.db
-    db_path = runtime.context.db
-    db = SQLDatabase.from_uri(f"sqlite:///{db_path}")
+    db = runtime.context.db
 
     try:
         return db.run(query)
